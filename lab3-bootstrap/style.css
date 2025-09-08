@@ -1,0 +1,10 @@
+.missile-link {
+	text-decoration: none;
+	display: block;
+}
+#test-only {
+	background-color: pink;
+}
+#real-alert {
+	background-color: lightgreen;
+}
