@@ -1,2 +1,2 @@
-make sure to put some comments
-readable - whitespaces
+Make sure to put some comments
+Make it more readable - more effectively use whitespaces
