@@ -22,47 +22,58 @@
   <link href="feedback-styles.css" type="text/css" rel="stylesheet">
 
 </head>
+
+
+
 <body class="my-3 mx-5 py-3 px-3">
 
   <!---announcement--->
-  <div class=" header bg-info mb-5">
+  <div class=" header bg-info mb-5 text-center">
     <h1 class="py-5 px-3">Please provide feedback.<strong> You may do so anonymously.</strong></h1>
   </div>
 
+  <div class="row"> <!---new div for row--->
 
-  <div>
-    <!---name, optional--->
-    <label class="form-label" for="user_name">Name</label>
-    <input id="user_name" class="form-control" name="user_name" >
+  <div class="col">Instructions</div> <!---new div col for instructions--->
+
+  <div class="col"> <!---new 2nd col for form--->
+    <form>
+      <div> <!---input--->
+        <!---name, optional--->
+        <label class="form-label" for="user_name">Name</label>
+        <input id="user_name" class="form-control" name="user_name" >
+        <!---email, optional--->
+        <br><label class="form-label" for="user_email">email</label>
+        <input id="user_email" class="form-control" name="user_email" type="email" >
+        <!---comments, required--->
+        <br><label class="form-label" for="comment_box">Comments</label>
+        <br><textarea name="comment_str" id="comment_box" class="form-control"required></textarea>
+      </div> <!---input end--->
+
+      <div><!---radio start--->
+        <!---radio buttons, yes by default--->
+        <p class="form-text">Are you a current student?</p>
+
+        <div class="form-check">
+          <input name="current_student" id="yes" class="form-check-input" type="radio" checked>
+          <label for="yes" class="form-check-label">Yes</label>
+        </div>
+
+        <div class="form-check">
+          <input name="current_student" id="no" class="form-check-input" type="radio">
+          <label for="no" class="form-check-label">No</label>
+        </div>
+      </div><!---radio end--->
+
+      <!---submit button--->
+      <div>
+        <input class="btn btn-primary mt-2" type="submit">
+      </div>
     
-    <!---email, optional--->
-    <br><label class="form-label" for="user_email">email</label>
-    <input id="user_email" class="form-control" name="user_email" type="email" >
-  
-    <!---comments, required--->
-    <br><label class="form-label" for="comment_box">Comments</label>
-    <br><textarea name="comment_str" id="comment_box" class="form-control"required></textarea>
-    
-    <!---radio buttons, yes by default--->
-    <p class="form-text">Are you a current student?</p>
+    </form>
 
-    <div class="form-check">
-      <input name="current_student" id="yes" class="form-check-input" type="radio" checked>
-      <label for="yes" class="form-check-label">Yes</label>
-    </div>
-
-    <div class="form-check">
-      <input name="current_student" id="no" class="form-check-input" type="radio">
-      <label for="no" class="form-check-label">No</label>
-    </div>
-
-    <!---submit button--->
-    <div>
-      <input class="btn btn-primary mt-2" type="submit">
-    </div>
-
-  </div>
-
+  </div><!---end 2nd div col for form--->
+  </div><!---end of row div--->
 
 </body>
 </html>
