@@ -1,22 +1,102 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<!--- bootstrap --->
-		  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-  		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Conference Registration</title>
 
-    <!---google font--->
-	</head>
-<!---each: name & id, label/for--->
+  <!---bootstrap--->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 
-<!---name (text) req--->
-<!---password () req--->
-<!---email () req--->
-<!---tshirt size (selection option) req--->
-<!---dob (date) req--->
-<!---email updates (radio) req--->
-<!---choose session (checkbox)--->
-<!---special requests (textarea) 7 row x 70 col--->
-<!---submit--->
+  <!---bitcount font--->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>  
+  <link href="https://fonts.googleapis.com/css2?family=Bitcount+Prop+Single:wght@100..900&family=Bitcount:wght@100..900&display=swap" rel="stylesheet">
 
+  <!---bitcount prop single font--->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bitcount+Prop+Single:wght@100..900&display=swap" rel="stylesheet">
+
+  <!---custom css--->
+  <link href="conference-style.css" type="text/css" rel="stylesheet">
+
+</head>
+
+
+
+<body class="my-3 mx-5 py-3 px-3"> <!--- margin & padding--->
+
+  <!---announcement--->
+  <div class="header mb-5 text-center"> <!--- margin adj & center content--->
+    <h1 class="py-5 px-3">Conference Registration Form</h1>
+  </div>
+
+    <form>
+		<div class="my-5">
+			<!---name, optional, max 70 char required--->
+			<label class="form-label" for="user_name">Name</label>
+			<input id="user_name" class="form-control" name="user_name" maxlength="70" required>
+
+			<!--- password required-->
+			<br><label class="form-label" for="password">Password</label>
+			<input type="password" id="password" class="form-control" name="password" required>
+
+			<!---email, required--->
+			<br><label class="form-label" for="user_email">Email</label>
+			<input id="user_email" class="form-control" name="user_email" type="email" required>
+		</div>
+
+		<div class="my-5"><!---tshirt size (select option) required-->
+			<br><label class="form-label" for="tshirt_size_select">Free T-Shirt Size: </label>
+			<select class="form-control" id="tshirt_size_select">
+				<option>Small</option>
+				<option>Medium</option>
+				<option>Large</option>
+			</select>
+		</div>
+
+		<!---dob req-->
+		<br><label for="dob_input">Date of Birth: </label>
+		<input class="form-control" type="date" id="dob_input" name="date_of_birth">
+
+      	<div class="my-5"><!---radio start--->
+			<!---radio buttons, required--->
+			<p class="form-text">Receive email updates?</p>
+
+			<div class="form-check">
+			<input name="email_updates" id="yes" class="form-check-input" type="radio" required>
+			<label for="yes" class="form-check-label">Yes</label>
+			</div>
+
+			<div class="form-check">
+			<input name="email_updates" id="no" class="form-check-input" type="radio" required>
+			<label for="no" class="form-check-label">No</label>
+			</div>
+      	</div><!---radio end--->
+
+
+	  	<div class="my-5"><!---choose sessions (checkbox)-->
+			<p class="form-text">Sessions:</p>
+
+			<input type="checkbox" id="sess1" name="sess1" class="form-check-input">
+			<label for="sess1">sess1</label>
+
+			<br><input type="checkbox" id="sess2" name="sess2" class="form-check-input">
+			<label for="sess2">sess2</label>
+		</div>
+
+	  	<!---special requests (7 row x 70 col)--->
+        <br><label class="form-label" for="special_request">Special requests</label>
+        <br><textarea name="special_request" id="special_request" class="form-control" rows="7" cols="70" required></textarea>
+
+      <!---submit button--->
+      <div>
+        <input class="btn btn-primary mt-2" type="submit">
+      </div>
+    
+    </form>
+
+</body>
 </html>
+
