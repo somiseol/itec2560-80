@@ -25,10 +25,10 @@
 
 
 
-<body class="my-3 mx-5 py-3 px-3">
+<body class="my-3 mx-5 py-3 px-3"> <!--- margin & padding--->
 
   <!---announcement--->
-  <div class="header bg-info mb-5 text-center">
+  <div class="header bg-info mb-5 text-center"> <!--- margin adj & center content--->
     <h1 class="py-5 px-3">Please provide feedback.<strong> You may do so anonymously.</strong></h1>
   </div>
 
@@ -46,12 +46,15 @@
   <div class="col-md-7"> <!---new 2nd col for form--->
     <form>
       <div> <!---input--->
+
         <!---name, optional--->
         <label class="form-label" for="user_name">Name</label>
         <input id="user_name" class="form-control" name="user_name" >
+
         <!---email, optional--->
         <br><label class="form-label" for="user_email">email</label>
         <input id="user_email" class="form-control" name="user_email" type="email" >
+
         <!---comments, required--->
         <br><label class="form-label" for="comment_box">Comments</label>
         <br><textarea name="comment_str" id="comment_box" class="form-control"required></textarea>
