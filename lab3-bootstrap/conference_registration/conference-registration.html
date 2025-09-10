@@ -32,23 +32,34 @@
     <h1 class="py-5 px-3">Conference Registration Form</h1>
   </div>
 
-    <form>
-		<div class="my-5">
+
+
+  <form>
+		<div class="my-5 p-3 div1"> <!---info div---> <!--- TODO turn "my-5 p-3 div1" into single var--->
 			<!---name, optional, max 70 char required--->
 			<label class="form-label" for="user_name">Name</label>
-			<input id="user_name" class="form-control" name="user_name" maxlength="70" required>
+			<input
+		 		id="user_name"
+				class="form-control"
+				name="user_name"
+				maxlength="70"
+				required>
+
 
 			<!--- password required-->
 			<br><label class="form-label" for="password">Password</label>
 			<input type="password" id="password" class="form-control" name="password" required>
+
 
 			<!---email, required--->
 			<br><label class="form-label" for="user_email">Email</label>
 			<input id="user_email" class="form-control" name="user_email" type="email" required>
 		</div>
 
-		<div class="my-5"><!---tshirt size (select option) required-->
-			<br><label class="form-label" for="tshirt_size_select">Free T-Shirt Size: </label>
+
+
+		<div class="my-5 p-3 div1"><!---tshirt size (select option) required-->
+			<label class="form-label" for="tshirt_size_select">Select Free T-Shirt Size: </label>
 			<select class="form-control" id="tshirt_size_select">
 				<option>Small</option>
 				<option>Medium</option>
@@ -56,11 +67,17 @@
 			</select>
 		</div>
 
-		<!---dob req-->
-		<br><label for="dob_input">Date of Birth: </label>
-		<input class="form-control" type="date" id="dob_input" name="date_of_birth">
 
-      	<div class="my-5"><!---radio start--->
+
+		<!---dob req-->
+		<div class="my-5 p-3 div1">
+			<label for="dob_input">Date of Birth: </label>
+			<input class="form-control" type="date" id="dob_input" name="date_of_birth">
+		</div>
+      
+
+
+		<div class="my-5 p-3 div1"><!---radio start--->
 			<!---radio buttons, required--->
 			<p class="form-text">Receive email updates?</p>
 
@@ -76,22 +93,28 @@
       	</div><!---radio end--->
 
 
-	  	<div class="my-5"><!---choose sessions (checkbox)-->
-			<p class="form-text">Sessions:</p>
 
-			<input type="checkbox" id="sess1" name="sess1" class="form-check-input">
-			<label for="sess1">sess1</label>
+	  	<div class="my-5 p-3 div1"><!---choose sessions (checkbox)-->
+				<p class="form-text">Sessions:</p>
 
-			<br><input type="checkbox" id="sess2" name="sess2" class="form-check-input">
-			<label for="sess2">sess2</label>
-		</div>
+				<input type="checkbox" id="sess1" name="sess1" class="form-check-input">
+				<label for="sess1">sess1</label>
 
-	  	<!---special requests (7 row x 70 col)--->
-        <br><label class="form-label" for="special_request">Special requests</label>
+				<br><input type="checkbox" id="sess2" name="sess2" class="form-check-input">
+				<label for="sess2">sess2</label>
+			</div>
+
+
+
+			<div class="my-5 p-3 div1"><!---special requests (7 row x 70 col)--->
+        <label class="form-label" for="special_request">Special requests</label>
         <br><textarea name="special_request" id="special_request" class="form-control" rows="7" cols="70" required></textarea>
+			</div>
+
+
 
       <!---submit button--->
-      <div>
+      <div class="my-5 p-3 text-center">
         <input class="btn btn-primary mt-2" type="submit">
       </div>
     
