@@ -1,3 +1,7 @@
 .header {
-    font-family: Bitcount;
+    font-family: "Bitcount";
+}
+
+body {
+    font-family: "Bitcount Prop Single";
 }
