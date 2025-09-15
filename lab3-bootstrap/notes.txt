@@ -1,2 +1,3 @@
-is there a way to "bundle" classes?
+is there a way to multiple classes into one variable?
 	e.g. turn "my-5 p-3 div1" into "div-1-grey"
+	-> SASS pre-processor (write scss, compile to css)
