@@ -1,0 +1,2 @@
+is there a way to "bundle" classes?
+	e.g. turn "my-5 p-3 div1" into "div-1-grey"
