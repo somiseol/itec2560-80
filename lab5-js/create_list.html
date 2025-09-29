@@ -25,7 +25,7 @@
     let text = textInput.value
     let listItem = document.createElement('li')
     
-    if (list.querySelectorAll('li').length < 10) { // better way?
+    if (list.querySelectorAll('li').length < 10) { // better way? seems like lot of work
     listItem.innerHTML = text 
     list.appendChild(listItem)
     textInput.value = ''
@@ -36,7 +36,7 @@
   let clrBtn = document.querySelector('#clr-btn')
   
   clrBtn.addEventListener('click', function(){
-    let listItems = document.querySelectorAll('li') // had to be inside event listener
+    let listItems = document.querySelectorAll('li') // has to be inside event listener
     for (let item of listItems) {
         item.remove()
     }

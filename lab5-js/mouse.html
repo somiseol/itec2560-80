@@ -7,7 +7,7 @@
 
     <p id="mouse-me">Move the mouse over this message</p>
 
-    <p id="moused-num"></p>
+    <p id="moused-num"></p> <!--display countr-->
 <script>
 
     // Select the #mouse-me paragraph
@@ -19,7 +19,7 @@
     // the mouse cursor moves over the paragraph
     message.addEventListener('mouseover', function() {
         message.innerHTML = 'Your mouse is on this message'
-        moused++
+        moused++ // count
         document.querySelector('#moused-num').innerHTML = moused
     })
 

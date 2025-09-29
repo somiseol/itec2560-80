@@ -5,35 +5,16 @@
 </head>
 <body>
 
-    <!-- Write your HTML content here -->
 	<button>Click Here!!!</button>
 <script>
 
 	// find button element
 	let button = document.querySelector('button')
 
-	// TODO: pass args at listener
-	// why is alertation() called here?
-	function alertation() {
-		alert('You clicked the button!')
-		button.innerHTML = 'The button has been clicked'
-	}
-
-	button.addEventListener('click', alertation())
-
-
-//	let alertation = function() {
-//	alert('You clicked the button!')
-//	button.innerHTML = 'The button has been clicked'
-//	}
-
-//	button.addEventListener('click', alertation)
-
-
-//	button.addEventListener('click', function(){
-//		alert('you clicked the button!!')
-//		button.innerHTML = 'The button has been clicked!'
-//	})
+	button.addEventListener('click', function(){
+		alert('you clicked the button!!')
+		button.innerHTML = 'The button has been clicked!'
+	})
 </script>
 
 </body>
