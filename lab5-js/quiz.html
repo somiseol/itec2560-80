@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title></title>
+</head>
+<body>
+    <p>What is the capital of Wisonsin?</p>
+
+    <button class="wrong-answer">Bayfield</button>
+    <button id = "correct-answer">Madison</button>
+    <button class="wrong-answer">Milwaukee</button>
+
+    <p id="result"></p>
+
+<script>
+    // select correct button by id
+    let correctAnswerButton = document.querySelector('#correct-answer')
+
+    //select paragraph by id
+    let result = document.querySelector('#result')
+
+    //select wrong buttons by class
+    let wrongAnswerButtons = document.querySelectorAll('.wrong-answer')
+   
+    for (let i = 0; i < wrongAnswerButtons.length; i++) {
+        let wrongAnswerButton = wrongAnswerButtons[i]
+        wrongAnswerButton.addEventListener('click', function() {
+            result.innerHTML = 'wrong answer, try again'
+            correctAnswerButton.style.background = defaultButtonBackground // not global var?
+        })
+    }
+
+    correctAnswerButton.addEventListener('click', function() {
+        result.innerHTML = 'Correct answer!' // display msg
+        correctAnswerButton.style.background = 'cyan'
+
+    
+    })
+
+</script>
+
+</body>
+</html>
