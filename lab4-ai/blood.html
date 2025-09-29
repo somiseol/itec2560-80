@@ -52,7 +52,7 @@ getBloodUnitsButton.addEventListener('click', function() {
   bloodGroupDisplay.textContent = groupName;
 
   // Fetch data from the API
-  fetch(`https://blood-group-api.wl.r.appspot.com/${groupName}`)
+  fetch(`https://blood-group-api.wl.r.appspot.com/api/blood_units_by_group/${groupName}`)
     .then(response => {
       if (!response.ok) {
         throw new Error('Network response was not ok');
