@@ -65,9 +65,11 @@
     let studentId = idInput.value
     let studentGpa = gpaInput.value
 
+    // validity checks
     if (studentName == '') {alert('Please enter name')} // check name
     else if (studentId == '') {alert('Please enter ID')} // check id
     else if (studentGpa > 4.0 || studentGpa < 0 || studentGpa == '') {alert('GPA should be between 0.0 and 4.0')}
+    
     else {
       let studentItem = document.createElement('li')
 
