@@ -74,7 +74,8 @@
     let cityInput = document.querySelector('#city')
     
     // TODO create a variable for zip code input element
-    let zipCodeInput = document.querySelector('#zip-code')
+    let zipCodeInput = document.querySelector('#zipcode')
+
 
     let submitButton = document.querySelector('#submit-order')
 
@@ -88,10 +89,10 @@
         let treeType = treeTypeSelect.value
 
         // TODO get the value from the input#city
-        
+        let city = cityInput.value
 
         // TODO get the value from the input#zipcode
-        
+        let zipcode = zipCodeInput.value
 
         // TODO Validate that all six input and select elements have been completed
         //  - check they all have a value
@@ -114,7 +115,17 @@
         // If a form element has not been completed, or if the data is not valid, 
         // add an error message to the errors array. (Hint: use push to add to the end of the array)
         // Add one error message for each problem with the form. 
-
+        
+        let inputElements = [homeownerNameInput, homeownerHouseNumberInput, homeownerStreetNameInput, treeTypeSelect, cityInput, zipCodeInput]
+        // loop thru each input element
+        inputElements.forEach(function(inputElement, index) {
+            if (inputElement.value == ""){ // if input/select is empty
+                errors.push(`empty input ${index}`) // add error to list
+                inputElement.classList.add("error") // add error class to element
+            } else {
+                inputElement.classList.remove("error") // remove error class from element
+            }
+        })
         
         // TODO - If there are any errors after checking all of the input elements, 
         // display an alert with all of the error messages. (Hint: use join)
@@ -126,27 +137,19 @@
 
         let orderSummary = document.querySelector("#order-summary")
 
-        // when click submit
-        document.querySelector("#submit-order").addEventListener('click', function(){
-            let city = cityInput.value
-            let zipCode = zipCodeInput.value
 
-            // check if all inputs entered
-            if ((name != null) && (houseNumber != null) && (streetName != null) && (treeType != null)) {
-            errors.push("empty inputs")
-            }
-
-            // zip code validation
-            if ((zipCode >= 55001) && (zipCode <= 56763) && (typeof zipCode === "number")) {
-            errors.push("invalid zip code")
-            zipCodeInput.classList.add("error")
-            }
-            
-            orderSummary.innerHTML = `${name}\n${houseNumber} ${streetName} ${city} ${zipCode}\n${treeType}`
-        })
+        
+        
+        
+        if (errors.length > 0) {
+            orderSummary.innerHTML = `${errors}`
+        } else {
+            orderSummary.innerHTML =
+            `${name}
+            ${houseNumber} ${streetName} ${city} ${zipcode}
+            ${treeType}`
+        }
     })
-
-
 
 </script>
 
