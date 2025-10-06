@@ -113,13 +113,29 @@
 
 
 
-      <!---submit button--->
-      <div class="my-5 p-3 text-center">
-				<input class="btn btn-primary mt-2" type="submit"> <!---TODO id & name?--->
-      </div>
+      	<!---submit button--->
+    	<div class="my-5 p-3 text-center">
+			<input class="btn btn-primary mt-2" id="submit-btn">
+		</div>
     
     </form>
-
+	<script>
+		document.querySelector("#submit-btn").addEventListener('click', function(){
+			// TODO create JSON 
+			/*
+			{
+				name: ,
+				password: ,
+				email: ,
+				tShirtSize: ,
+				dateOfBirth: ,
+				receiveEmailUpdates: ,
+				sessionsAttended: ,
+				specialRequests: ,
+			}
+			*/
+		})
+	</script>
 </body>
 </html>
 
