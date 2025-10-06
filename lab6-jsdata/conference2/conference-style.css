@@ -1,0 +1,13 @@
+.header {
+    font-family: "Bitcount";
+    font-size: 48px;
+}
+
+body {
+    font-family: "Bitcount Prop Single";
+}
+
+.div1 {
+    background-color: lightgrey;
+    border-radius: 10px;
+}

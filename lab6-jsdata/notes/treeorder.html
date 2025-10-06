@@ -71,11 +71,10 @@
     let treeTypeSelect = document.querySelector('#tree-type')
 
     // TODO create a variable for city input element
-    let cityInput = document.querySelector('#city')
-    
-    // TODO create a variable for zip code input element
-    let zipCodeInput = document.querySelector('#zipcode')
+    let homeownerCityInput = document.querySelector('#city')
 
+    // TODO create a variable for zip code input element
+    let homeownerZipcodeInput = document.querySelector('#zipcode')
 
     let submitButton = document.querySelector('#submit-order')
 
@@ -83,73 +82,55 @@
 
     submitButton.addEventListener('click', function() {
 
+        // assign inputted values
         let name = homeownerNameInput.value 
         let houseNumber = homeownerHouseNumberInput.value
         let streetName = homeownerStreetNameInput.value
         let treeType = treeTypeSelect.value
-
-        // TODO get the value from the input#city
-        let city = cityInput.value
-
-        // TODO get the value from the input#zipcode
-        let zipcode = zipCodeInput.value
-
-        // TODO Validate that all six input and select elements have been completed
-        //  - check they all have a value
-        
-
-        // TODO Validate the zipcode is in the range 55001 and 56763.
-        // to check that the zip code is in Minnesota.
-        // Make sure your script doesn't accept non-numeric input for the zip code. 
-
-
-        // Optional extra: add the class .error to any inputs with an error (and only inputs with an error)
-        // to give the user visual feedback for which inputs need to be fixed or completed. 
-        // There's a style for input.error and select.error defined in the styles (in the head)
-        // which will be applied if you give the class .error to any elements on the page. 
-        // Make sure you remove this class when the form is completed correctly.
-
+        let city = homeownerCityInput.value
+        let state = document.querySelector('#state').value
+        let zipcode = homeownerZipcodeInput.value
 
         let errors = []
-        
-        // If a form element has not been completed, or if the data is not valid, 
-        // add an error message to the errors array. (Hint: use push to add to the end of the array)
-        // Add one error message for each problem with the form. 
-        
-        let inputElements = [homeownerNameInput, homeownerHouseNumberInput, homeownerStreetNameInput, treeTypeSelect, cityInput, zipCodeInput]
-        // loop thru each input element
-        inputElements.forEach(function(inputElement, index) {
-            if (inputElement.value == ""){ // if input/select is empty
-                errors.push(`empty input ${index}`) // add error to list
-                inputElement.classList.add("error") // add error class to element
+
+        // Validate that all six input and select elements have been completed
+        //  - check they all have a value
+        let inputElements = [homeownerNameInput, homeownerHouseNumberInput, homeownerStreetNameInput, treeTypeSelect, homeownerCityInput, homeownerZipcodeInput]
+        inputElements.forEach(function(inputElement, index){
+            if (inputElement.value == ""){
+                errors.push(`${inputElement.id}`)
+                inputElement.classList.add('error')
             } else {
-                inputElement.classList.remove("error") // remove error class from element
+                inputElement.classList.remove('error')
             }
         })
-        
+        console.log(errors)
+
+        // zipcode validation
+        if ((zipcode < 55001) || (zipcode > 56763) || isNaN(zipcode)) {
+            errors.push('invalid zipcode')
+            homeownerZipcodeInput.classList.add('error')
+        } else {
+            homeownerZipcodeInput.classList.remove('error')
+        }
+                
         // TODO - If there are any errors after checking all of the input elements, 
         // display an alert with all of the error messages. (Hint: use join)
         // and then return from this function to prevent further processing 
 
-
-        // TODO - If there are no errors, use a template string to display an order 
-        // summary in the order summary paragraph.
-
-        let orderSummary = document.querySelector("#order-summary")
-
-
-        
-        
-        
-        if (errors.length > 0) {
-            orderSummary.innerHTML = `${errors}`
+        if (errors.length > 0) { // if there are any errors
+            alert(`Errors:
+            ${errors}`)
         } else {
-            orderSummary.innerHTML =
-            `${name}
-            ${houseNumber} ${streetName} ${city} ${zipcode}
-            ${treeType}`
+            orderSummaryParagraph.innerHTML =
+            `Thank you for your order, ${name}.
+            Adress: ${houseNumber} ${streetName} ${city}, ${state} ${zipcode}
+            
+            Ordered: ${treeType}`
         }
     })
+
+
 
 </script>
 
