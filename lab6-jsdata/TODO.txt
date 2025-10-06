@@ -1,0 +1,6 @@
+treeorder.html
+weather.js
+    - print current wind speed
+    - print all weather descriptions
+    - print current humidity
+
