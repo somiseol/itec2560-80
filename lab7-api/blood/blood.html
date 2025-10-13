@@ -55,17 +55,16 @@
             console.log(`url: ${url}`) // double check for dev
             
             fetch(url)
-            .then( res => res.json() )
+            .then( res => res.json() ) // returns promise
             .then( data => {
-                let bloodgroup = data.blood_availability.group_name
-                let availunits = data.blood_availability.units_available
+                console.log(data)
                 
-                bloodGroupDisplay.innerHTML = bloodgroup
-                unitsAvailableDisplay.innerHTML = availunits
+                bloodGroupDisplay.innerHTML = data.blood_availability.group_name // output blood group
+                unitsAvailableDisplay.innerHTML = data.blood_availability.units_available // output available units of selected blood group
             })
             .catch( err => {
-                console.log(err)
-                alert("error :(")
+                console.log(err) // alert dev to error
+                alert("error :(") // alert user to error
             })
         })
 
