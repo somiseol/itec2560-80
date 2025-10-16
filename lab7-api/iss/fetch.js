@@ -21,7 +21,7 @@ fetch(url)
         issLong.innerHTML = long
 
         let issMarker = L.marker([lat, long]).addTo(map)
-        //TODO change icon
+        //TODO change icon to iss-icon
         let date = new Date();
         document.querySelector('#dt_curr').innerHTML = `At ${date} the ISS is over the following coordinates:`
     })
