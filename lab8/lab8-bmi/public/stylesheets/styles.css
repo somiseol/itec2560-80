@@ -1,0 +1,13 @@
+/*simple stylesheet*/
+
+* {
+    font-family: 'Courier New', Courier, monospace; /*change all*/
+}
+
+h1 {
+    text-align: center;
+}
+
+body {
+  background-color: #f0f8ff; /* apparently this is called 'Alice Blue' */
+}

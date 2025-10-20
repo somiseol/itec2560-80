@@ -1,13 +1,16 @@
-<h1>Body Mass Index calculator</h1>
+<h1>Body Mass Index Calculator</h1>
+<h3>Enter your data:</h3>
 
 <div>
-    <form method="POST" action="/submit-data">
-        <label class="form-label" for="weight">weight</label>
-        <input class="form-control" id="weight" weight="weight">
+    <form method="GET" action="/calculate">
+        <label for="weight">weight (meters)</label>
+        <input id="weight" type="number" step="0.01" name="weight">
         <br>
-        <label class="form-label" for="height">height</label>
-        <input class="form-control" id="height" weight="height">
-
-        <input class="btn btn-primary" type="submit">
+        <br>
+        <label for="height">height (kilograms)</label>
+        <input id="height" type="number" step="0.01" name="height">
+        <br>
+        <br>
+        <button type="submit">Calculate</button>
     </form>
 </div>
