@@ -2,11 +2,13 @@ const express = require('express')
 const path = require('path')
 const bodyParser = require('body-parser')
 
+// import from index.js
 const indexRouter = require('./routes/index')
 
-
+// create web app
 const app = express()
 
+// parse req form body
 app.use(bodyParser.urlencoded({ extended: false }))
 
 const staticFileLocation = path.join(__dirname, 'public')
@@ -17,6 +19,7 @@ app.set('view engine', 'hbs')
 
 app.use('/', indexRouter)
 
-let server = app.listen(process.env.PORT || 3000, function (){
+// start server
+let server = app.listen(process.env.PORT || 3000, function () {
     console.log('Express server running on port', server.address().port)
 })
