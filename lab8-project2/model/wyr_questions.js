@@ -27,9 +27,9 @@ const questions = [
 ]
 
 function randomWyrQuestion() {
-    const randomIndex = Math.floor(Math.random() = questions.length)
+    const randomIndex = Math.floor(Math.random() * questions.length)
     const randomQuestion = questions[randomIndex]
     return randomQuestion
 }
 
-module.exports = randomQuestion
+module.exports = randomWyrQuestion
