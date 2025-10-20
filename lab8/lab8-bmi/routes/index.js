@@ -1,10 +1,9 @@
 // using express library
 const express = require('express')
-
 const router = express.Router()
 
+// index
 router.get('/', function(req, res, next) {
-
     res.render('index')
 })
 
@@ -17,6 +16,7 @@ router.get('/calculate', function(req, res, next){
     let height = parseFloat(formData.height);
     const bmi = parseFloat((weight / (height * height)).toFixed(2)); // 2 decimal places
 
+    // if bad inputs (i.e. 0 or null)
     if (isNaN(bmi)) {
         res.render('result_error')
     } else {
