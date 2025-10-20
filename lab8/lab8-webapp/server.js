@@ -1,5 +1,8 @@
+// using express
 const express = require('express')
 const path = require('path')
+
+// for parsing
 const bodyParser = require('body-parser')
 
 // import from index.js
@@ -11,6 +14,7 @@ const app = express()
 // parse req form body
 app.use(bodyParser.urlencoded({ extended: false }))
 
+// use static
 const staticFileLocation = path.join(__dirname, 'public')
 app.use(express.static(staticFileLocation))
 

@@ -27,6 +27,7 @@ const questions = [
 ]
 
 function randomWyrQuestion() {
+    // get random between 0 and question length
     const randomIndex = Math.floor(Math.random() * questions.length)
     const randomQuestion = questions[randomIndex]
     return randomQuestion
