@@ -17,14 +17,24 @@ router.post('/submit-feedback', function(req, res, next){
     // get form data
     const formData = req.body
 
-    //TODO: save data to database
+    let message = formData.comments
 
-    // send response
-    res.render('thank_you', {
-        name: formData.name,
-        email: formData.email,
-        message: formData.comments,
-        currentStudent: formData['current-student']
+    messageSorter(message).then(departmentList => {
+        if (departmentList.lenght === 0) {
+            departmentList = ['General college feedback']
+        }    
+
+        console.log('Departments to contact', departmentList)
+
+        // send response
+        return res.render('thank_you', {
+            name: formData.name,
+            email: formData.email,
+            message: formData.comments,
+            currentStudent: formData['current-student'],
+            departmentList: departmentList
+        })
+
     })
 })
 

@@ -7,3 +7,13 @@
 <h3>email: {{ email }}</h3>
 <h3>Message: {{ message }}</h3>
 <h3>Curret student: {{ currentStudent }}</h3>
+
+<h2>Departments Contacted</h2>
+
+<ul>
+    {{#each departmentList}}
+        <li>{{ this }}</li>
+    {{/each}}
+</ul>
+
+<a href="/">Back to the home page</a>
