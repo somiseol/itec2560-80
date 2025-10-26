@@ -1,6 +1,3 @@
-
-
-
 let { GoogleGenAI, Type } = require('@google/genai')
 
 let genAI = new GoogleGenAI( {} )
