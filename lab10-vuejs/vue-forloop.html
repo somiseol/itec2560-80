@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>vue for-loop</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        td, th {
+            width: 25%;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h1>vue for-loop</h1>
+
+        <label for="new-task">enter todo task:</label>
+        <input v-model="newTask" id="new-task">
+        <button v-on:click="addTask">add task</button>
+
+        <h2>task list</h2>
+        <ul>
+            <li v-for="task in taskList"> <!-- loop thru taskList -->
+                {{ task }}
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        const { createApp, ref } = Vue 
+
+        createApp({
+            setup() {
+                const taskList = ref([])
+                const newTask = ref('')
+                
+                // add to task list
+                const addTask = () => {
+                    if (newTask.value) {
+                        taskList.value.push(newTask.value)
+                        newTask.value = ''
+                    }
+                }
+
+                return {
+                    // data
+                    taskList,
+                    newTask,
+
+                    // functions
+                    addTask
+                } 
+            }
+        }).mount('#app')
+    </script>
+</body>
+</html>
+
