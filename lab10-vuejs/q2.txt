@@ -1,0 +1,10 @@
+"Property ... was accessed during render but is not defined on instance"
+What does this Vue warning message mean? Can you safely ignore it?
+What causes it, and how do you fix it? 
+Write an answer in your own words and cite all sources used. 
+    Vue cannot find Property in component's state
+    Should not be ignored.
+    Could be typo, incorrect scope of property, function does not exist, computed property does not exist
+
+
+    https://stackoverflow.com/questions/42908525/vue-warn-property-or-method-is-not-defined-on-the-instance-but-referenced-dur
