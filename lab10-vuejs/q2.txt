@@ -7,7 +7,7 @@ Can you safely ignore it?
     Should not be ignored.
 
 What causes it, and how do you fix it? 
-    Could be typo, incorrect scope of property, function does not exist, computed property does not exist, etc
+    Using a property not defined in the code
     Fixed by correcting typo, correcting scope, defining function, creating the computed property, etc
 
-https://stackoverflow.com/questions/42908525/vue-warn-property-or-method-is-not-defined-on-the-instance-but-referenced-dur
+https://github.com/quasarframework/quasar/discussions/9928
