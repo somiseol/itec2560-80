@@ -63,7 +63,7 @@
 
                     <tbody>
                         <!-- iterate over list and display info for each -->
-                        <tr v-for="student in sortedStudents" v-bind:ket="student.starID" v-bind:class="{ present: student.present, absent: !student.present }"> 
+                        <tr v-for="student in sortedStudents" v-bind:key="student.starID" v-bind:class="{ present: student.present, absent: !student.present }"> 
                             <td>{{ student.name }}</td>
                             <td>{{ student.starID }}</td>
                             <td>

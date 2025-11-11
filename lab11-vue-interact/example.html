@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bare-Bones Vue Computed</title>
+    <!-- Load Vue 3 -->
+    <script src="https://unpkg.com/vue@3"></script>
+</head>
+<body>
+
+    <!-- The Vue App Container -->
+    <div id="app">
+
+        <h1>Computed Property Demo</h1>
+
+        <p>The Full Name below automatically updates.</p>
+
+        <!-- Input for First Name -->
+        <div>
+            <label for="first-name">First Name:</label>
+            <input
+                id="first-name"
+                type="text"
+                v-model="firstName"
+                placeholder="Enter first name"
+            >
+        </div>
+
+        <!-- Input for Last Name -->
+        <div>
+            <label for="last-name">Last Name:</label>
+            <input
+                id="last-name"
+                type="text"
+                v-model="lastName"
+                placeholder="Enter last name"
+            >
+        </div>
+
+        <!-- Displaying the Computed Property -->
+        <div style="margin-top: 20px; border-top: 1px solid #ccc; padding-top: 10px;">
+            <h2>The Computed Result:</h2>
+            <p>
+                <strong>{{ fullName }}</strong>
+            </p>
+        </div>
+
+    </div>
+
+    <script>
+        // 1. Create the Vue Application
+        const { createApp } = Vue;
+
+        createApp({
+            // 2. Data Properties
+            data() {
+                return {
+                    firstName: 'Somi',
+                    lastName: 'Seol'
+                }
+            },
+
+            // 3. Computed Property
+            computed: {
+                fullName() {
+                    if (!this.firstName && !this.lastName) {
+                        return "Please enter your name...";
+                    }
+                    return `${this.firstName} ${this.lastName}`;
+                }
+            }
+        }).mount('#app');
+    </script>
+
+</body>
+</html>
