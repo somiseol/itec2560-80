@@ -14,14 +14,28 @@ export const useStudentStore = defineStore('students', () => {
     }
 
     function deleteStudent(studentToDelete) {
-        studentList.value = studentList.value.fileter( (student) => {
+        studentList.value = studentList.value.filter( (student) => {
             return studentToDelete != student
         })
     }
 
     function arrivedOrLeft(student) {
-        mostRecentStudent.value = student
+        const studentToModifyIndex = studentList.value.findIndex(s => s.starID == student.starID)
+        if (studentToModifyIndex != -1) {
+            mostRecentStudent.value = student
+            studentList.value[studentToModifyIndex] = student
+        }
     }
+
+    const sortedStudents = computed ( () => {
+        return studentList.value.toSorted( (s1, s2) => {
+            return s1.name.localeCompare(s2.name)
+        })
+    })
+
+    const studentCount = computed ( () => {
+        return studentList.value.length
+    })
 
     return {
         // reactive data
@@ -30,7 +44,10 @@ export const useStudentStore = defineStore('students', () => {
         
         addNewStudent,
         deleteStudent,
-        arrivedOrLeft
+        arrivedOrLeft,
+
+        sortedStudents,
+        studentCount
     }
     
 })
