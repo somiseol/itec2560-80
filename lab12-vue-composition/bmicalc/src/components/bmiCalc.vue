@@ -16,7 +16,7 @@ const emit = defineEmits ( [
     'bmiAnswer'
     ] )
 
-function calculateAndEmit(isImperial) {
+function statsEntered(isImperial) {
     let bmi = 0 // def value
     
     if (inHeight.value > 0 && inWeight.value > 0 && isImperial) { // bmi formula
@@ -47,5 +47,5 @@ function calculateAndEmit(isImperial) {
     </div>
 
     <br>
-    <button v-on:click="calculateAndEmit(isImperial)">Calculate</button>
+    <button v-on:click="statsEntered(isImperial)">Calculate</button>
 </template>
