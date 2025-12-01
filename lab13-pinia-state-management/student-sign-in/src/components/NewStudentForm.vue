@@ -1,7 +1,9 @@
 <script setup>
 	import { ref } from 'vue'
 
+
 	import { useStudentStore } from '../stores/StudentStore'
+
 	const studentStore = useStudentStore()
 
 	const newStudentName = ref('')
@@ -9,25 +11,23 @@
 
 	const formErrors = ref([])
 
+
 	const addStudent = () => {
 		formErrors.value = [] // clear errors array
 
 		if (!newStudentName.value) {
 			formErrors.value.push("no student name entered")
 		}
+
 		if (!newStarID.value) {
 			formErrors.value.push("no id entered")
 		}
 
+		// if no errors
 		if (formErrors.value.length == 0) {
-			let student = { 
-				name: newStudentName.value,
-				starID: newStarID.value,
-				present: false
-			}
+			let student = { name: newStudentName.value, starID: newStarID.value, present: false	}
 
-			// TODO add new student
-
+			studentStore.addNewStudent(student)
 			newStudentName.value = '' // clear form
 			newStarID.value = '' // clear form
 		}
@@ -35,8 +35,8 @@
 
 </script>
 
-
 <template>
+
 	<div id="new-student-form-errors" class="m-2">
             <!-- display boostrap error msg if list of errors is more than 0 -->
             <div class="alert alert-danger" v-if="formErrors.length > 0">
@@ -45,7 +45,6 @@
                 </li>
             </div>
         </div>
-
 
         <div id="new-student-form" class="card add-student m-2 p-2">
             <h4 class="card-title">Add new student</h4>
@@ -56,7 +55,6 @@
                 <!-- trim for whitespace -->
                 <input id="name" class="form-control" v-model.trim="newStudentName">
             </div>
-
             <div class="form-group mb-3">
                 <label for="starID">Star ID</label>
                 <input id="starID" class="form-control" v-model.trim="newStarID">

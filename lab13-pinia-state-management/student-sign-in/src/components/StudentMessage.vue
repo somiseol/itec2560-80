@@ -1,10 +1,27 @@
 <script setup>
-	// script
+
+	import { useStudentStore } from '../stores/StudentStore.js'
+	import { storeToRefs } from 'pinia'
+
+	const studentStore = useStudentStore()
+
+	const { mostRecentStudent } = storeToRefs(studentStore)
+
 </script>
 
-
 <template>
-	<!-- html -->
+
+	<div id="welcome-or-goodbye-message" class="m-2">
+		<div v-if="mostRecentStudent.name">
+			<div v-if="mostRecentStudent.present" class="alert alert-success">
+				Welcome {{ mostRecentStudent }}
+			</div>
+			<div v-else class="alert alert-info">
+				Goodbye, {{ mostRecentStudent }}
+			</div>
+		</div>
+	</div>
+
 </template>
 
 

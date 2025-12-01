@@ -19,13 +19,18 @@ export const useStudentStore = defineStore('students', () => {
         })
     }
 
+    function arrivedOrLeft(student) {
+        mostRecentStudent.value = student
+    }
+
     return {
         // reactive data
         studentList,
         mostRecentStudent,
         
         addNewStudent,
-        deleteStudent
+        deleteStudent,
+        arrivedOrLeft
     }
     
 })
