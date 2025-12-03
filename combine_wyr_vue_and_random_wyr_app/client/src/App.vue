@@ -1,8 +1,10 @@
 <script setup>
 
-import { ref } from 'vue'
+// mounted is special funct called when component is first created and added to page
+import { ref, onMounted } from 'vue'
 
 import WouldYouRather from './components/WouldYouRather.vue';
+import wyrService from './services/wyrService';
 
 // reactive state (internally belongs to component, scoped w/in itself)
 const wyrQuestion = ref('eat an apple or eat a worm')
