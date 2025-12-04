@@ -13,7 +13,7 @@ const wyrAnswer2 = ref('')
 const userSelection = ref('')
 
 onMounted(() => {
-  wyrQuestion.getRandomWYR().then( wyrData => { // TODO .getRandomWYR() "not a function" error
+  wyrService.getRandomWYR().then( wyrData => { 
     wyrQuestion.value = wyrData.question
     wyrAnswer1.value = wyrData.answer1
     wyrAnswer2.value = wyrData.answer2
