@@ -24,6 +24,11 @@ const questions = [
         'answer1': 'Famous movie star',
         'answer2': 'Famous scientist'
     },
+    {
+        'question': 'go skiing or to the beach',
+        'asnwer1': 'ski',
+        'answer2': 'beach'
+    }
 ]
 
 function randomWyrQuestion() {

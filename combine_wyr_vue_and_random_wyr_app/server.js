@@ -1,4 +1,5 @@
 const express = require('express')
+const path = require('path')
 
 // import the routes in routes/index.js
 const indexRouter = require('./routes/index')
@@ -7,6 +8,10 @@ const indexRouter = require('./routes/index')
 const app = express() 
 
 // make the routes in index.js available to the app 
+const staticFilePath = path.join(__dirname, 'client', 'dist')
+const staticFiles = express.static(staticFilePath)
+app.use('/', staticFiles)
+
 app.use('/', indexRouter)
 
 // Start server running 
