@@ -59,6 +59,3 @@ const addStudent = () => {
 </div>
 
 </template>
-
-<style scoped>
-</style>

@@ -3,6 +3,7 @@
 import { useStudentStore } from '../stores/StudentStore.js'
 import { storeToRefs } from 'pinia'
 import { computed } from 'vue'
+import StudentRow from './StudentRow.vue'
 
 const studentStore = useStudentStore()
 const { sortedStudents, studentCount } = storeToRefs(studentStore)
@@ -12,7 +13,8 @@ const deleteStudent = (student) => {
     studentStore.deleteStudent(student)
 }
 
-const arrivedOrLeft = (student) => {
+const arrivedOrLeft = (student, isStudentPresent) => {
+    student.present = isStudentPresent
     studentStore.arrivedOrLeft(student)
 }
 
@@ -44,21 +46,13 @@ const pluralStudentMessage = computed (() => {
             </thead>
 
             <tbody>
-                <tr v-for="student in sortedStudents" v-bind:key="student.starID" class="align-middle" v-bind:class="{ present: student.present, absent: !student.present }">
-                    <td>{{ student.name }}</td>
-                    <td>{{ student.starID }}</td>
-                    <td>
-                        <input type="checkbox" v-model="student.present" v-on:change="arrivedOrLeft(student)">
-                        <span class="mx-3" v-if="student.present">Here!</span>
-                        <span class="mx-3" v-else>Absent</span>
-                    </td>
-                    <td>
-                        <!-- using functions from store export -->
-                        <button class="btn btn-danger" v-on:click="deleteStudent(student)">
-                            <i class="bi bi-trash-fill"></i> Delete
-                        </button>
-                    </td>
-                </tr>
+                <!-- each component gets indiv student via prop -->
+                <StudentRow
+                    v-for="student in sortedStudents"
+                    v-bind:student="student"
+                    v-on:arrived-or-left="arrivedOrLeft"
+                    v-on:delete-student="deleteStudent" >
+                </StudentRow>
             </tbody>
 
         </table>
@@ -66,27 +60,3 @@ const pluralStudentMessage = computed (() => {
 </div>
 
 </template>
-
-<style scoped>
-
-#student-table {
-    max-height: 500px;
-    overflow:scroll;
-}
-
-th, td {
-    width: 25%;
-    text-align: center;
-}
-
-.present {
-    color: red;
-    font-style:italic;
-}
-
-.absent {
-    color: green;
-    font-weight: bold;
-}
-
-</style>

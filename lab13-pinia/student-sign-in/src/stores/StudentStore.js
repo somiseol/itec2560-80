@@ -16,8 +16,9 @@ export const useStudentStore = defineStore('students', () => {
 
     function deleteStudent(studentToDelete) {
         studentList.value = studentList.value.filter( (student) => {
-            return studentToDelete != student
+            return studentToDelete.starID != student.starID
         })
+        mostRecentStudent.value = {}
     }
 
     function arrivedOrLeft(student) {

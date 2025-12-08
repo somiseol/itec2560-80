@@ -24,6 +24,3 @@ const { mostRecentStudent } = storeToRefs(studentStore)
 </div>
 
 </template>
-
-<style scoped>
-</style>
